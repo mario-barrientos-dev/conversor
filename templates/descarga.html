@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convertidor PDF a Excel</title>
+    <link href="../static/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav>
+        <div class="logo-div">
+            <img class="logo" src='static\images\Maaji-logo.png'/>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('home.home_view') }}">Inicio</a></li>
+            <li><a href="/coominsoon">Próximamente</a></li>
+            <li><a href="/coominsoon">Próximamente</a></li>
+        </ul>
+    </nav>
+	<div class="container">
+        <h1>Mi aplicación</h1>
+        <p>Aquí puedes descargar el archivo:</p>
+        {% if 'excel' in session %}
+        <a href="{{ url_for('auth.download') }}" class="button download">Descargar archivo</a>
+        {% endif %}
+        <br><br>
+        <p>O volver al inicio:</p>
+        <a href="{{ url_for('home.home_view') }}" class="button home">Volver al inicio</a>
+      </div>
+    <footer>
+        <p>Derechos Reservados</p>
+    </footer>
+    <script>
+        const button = document.getElementById('party-button');
+        button.addEventListener('mouseover', () => {
+            button.classList.add('party');
+            setTimeout(() => {
+                button.classList.remove('party');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

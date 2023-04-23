@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coming Soon</title>
+    <link href="../static/styles.css" rel="stylesheet" type="text/css">
+    <style>
+        .coming-soon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 60px);
+        }
+        .parallax-text {
+            font-size: 4em;
+            position: relative;
+            perspective: 500px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-div">
+            <img class="logo" src='static\images\Maaji-logo.png'/>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('home.home_view') }}">Inicio</a></li>
+            <li><a href="/coominsoon">Próximamente</a></li>
+            <li><a href="/coominsoon">Próximamente</a></li>
+        </ul>
+    </nav>
+    <section class="coming-soon-container">
+        <h1 class="parallax-text">Próximamente</h1>
+    </section>
+    <footer>
+        <p>Derechos Reservados</p>
+    </footer>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const parallaxText = document.querySelector('.parallax-text');
+            const x = (e.clientX - window.innerWidth / 2) * 0.05;
+            const y = (e.clientY - window.innerHeight / 2) * 0.05;
+            parallaxText.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convertidor PDF a Excel</title>
+    <link href="../static/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav>
+        <div class="logo-div">
+            <img class="logo" src='static\images\Maaji-logo.png'/>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('home.home_view') }}">Inicio</a></li>
+            <li><a href="/coominsoon">Próximamente</a></li>
+            <li><a href="/coominsoon">Próximamente</a></li>
+        </ul>
+    </nav>
+    <h1>Carga de archivo PDF</h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data" class="form-upload">
+        <label for="pdf">Selecciona un archivo PDF:</label>
+        <input type="file" name="pdf" id="pdf" class="input-pdf">
+        <input type="submit" value="Subir" class="button_inicio">
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </form>
+    <footer>
+        <p>Derechos Reservados</p>
+    </footer>
+    <script>
+        const button = document.querySelector('.button_inicio');
+    
+        button.addEventListener('click', () => {
+            button.classList.add('party');
+            setTimeout(() => {
+                button.classList.remove('party');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

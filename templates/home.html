@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de PDF a Excel</title>
+    <link href="../static/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav>
+        <div class="logo-div">
+            <img class="logo" src='static\images\Maaji-logo.png'/>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('home.home_view') }}">Inicio</a></li>
+            <li><a href="/coominsoon">Próximamente</a></li>
+            <li><a href="/coominsoon">Próximamente</a></li>
+        </ul>
+    </nav>
+    <h1>Conversor de PDF a Excel</h1>
+    <p>Convierte fácilmente tus archivos PDF a Excel con nuestro conversor en línea.</p>
+    <a href="/auth" class="button_inicio" id="party-button">¡Comenzar ahora!</a>
+    <footer>
+        <p>Derechos Reservados</p>
+    </footer>
+    <script>
+        const button = document.getElementById('party-button');
+        button.addEventListener('mouseover', () => {
+            button.classList.add('party');
+            setTimeout(() => {
+                button.classList.remove('party');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
