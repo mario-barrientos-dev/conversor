@@ -3,9 +3,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.4;
@@ -13,6 +10,16 @@ body {
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+  }
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2fc9e;
+    color: #050404;
+    padding: 10px;
 }
 
 h1 {
@@ -70,14 +77,6 @@ p {
     100% { transform: rotate(0deg) }
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f2fc9e;
-    color: #050404;
-    padding: 10px;
-}
 
 .logo {
     width: 10%;
@@ -127,8 +126,6 @@ footer p {
     font-weight: bold;
 }
 
-
-
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -158,7 +155,7 @@ footer p {
 }
 
 .home {
-    background-color: #f2fc9e;
+    background-color: #5f29b6;
 }
 
 .form-upload {
