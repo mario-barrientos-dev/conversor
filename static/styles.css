@@ -16,17 +16,32 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background-color: #f2fc9e;
     color: #050404;
     padding: 10px;
+}
+.navbar{
+  padding: .5rem 100%;
+  justify-content: space-between;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+.nav-item {
+  margin-left: 10px;
 }
 
 h1 {
     color: #494949;
     text-align: center;
     margin-top: 50px;
-    font-size: 36px;
+    font-size: 50px;
+}
+h2 {
+  color: #494949;
+  text-align: center;
+  margin-top: 50px;
 }
 
 p {
@@ -256,3 +271,23 @@ label {
   .hidden {
     display: none;
   }
+
+  .navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+footer {
+    background-color: #007bff;
+    color: white;
+}
+
+.coming-soon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+}
+.parallax-text {
+  font-size: 4em;
+  position: relative;
+  perspective: 500px;
+}
