@@ -1,7 +1,4 @@
 import os
-import tabula
-import pandas as pd
-import datetime
 import tempfile
 from flask import Flask, render_template, request, Blueprint, send_file, session, redirect
 
@@ -28,11 +25,11 @@ def upload():
             os.remove(pdf_filename)
             session[f"excel"] = (temp_filename)
             
-            return redirect('/bridge')
+            return 'ok'
     else:
         # El archivo no es un PDF
         error = 'Por favor, sube un archivo PDF válido'
-        return render_template('conversor.html', error=error)
+        return error
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'pdf'

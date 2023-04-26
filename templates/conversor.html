@@ -21,14 +21,43 @@
         <label for="pdf">Selecciona un archivo PDF:</label>
         <input type="file" name="pdf" id="pdf" class="input-pdf">
         <input type="submit" value="Subir" class="button_inicio">
-        {% if error %}
-            <p class="error">{{ error }}</p>
-        {% endif %}
+        
+        <p id="error"></p>
+        
     </form>
+    <div id="loading" class="loading hidden">
+        <div class="loading-spinner"></div>
+        <p>Cargando...</p>
+      </div>
     <footer>
         <p>Derechos Reservados</p>
     </footer>
     <script>
+        const uploadForm = document.querySelector('.form-upload');
+        const loadingDiv = document.querySelector('#loading');
+        var resultado = ''
+        uploadForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevenir que el formulario se envíe automáticamente
+        
+        loadingDiv.classList.remove('hidden'); // Mostrar la animación de carga
+        
+        // Enviar el formulario
+        const formData = new FormData(uploadForm);
+        fetch('/upload', { method: 'POST', body: formData })
+            .then(response => response.text())
+            .then(result => {
+            if(result == 'ok'){
+            loadingDiv.classList.add('hidden');
+            window.location.href = '/bridge'; // Ocultar la animación de carga  
+            }else{
+                resultado = result
+                document.getElementById('error').innerHTML = resultado;  
+                loadingDiv.classList.add('hidden');
+            }
+            
+            })
+            .catch(error => console.error(error));
+        });
         const button = document.querySelector('.button_inicio');
     
         button.addEventListener('click', () => {
