@@ -6,6 +6,11 @@ def is_empty_dataframe(df):
     return df.empty or all(df.dropna(axis=1, how='all').dropna(axis=0, how='all').columns.isnull())
 
 def extraer_tablas_pdf(archivo_pdf: str) -> list:
+    """ 
+    `archivo_pdf`: una cadena que contiene el nombre del archivo PDF que se va a procesar.
+    `tablas`: una lista de DataFrames que contienen las tablas extraídas del PDF.
+    Esta función utiliza la biblioteca tabula para extraer todas las tablas de un archivo PDF y devuelve una lista de DataFrames que representan las tablas extraídas.
+    """
     tablas = []
     with pdfplumber.open(archivo_pdf) as pdf:
         for page in pdf.pages:
@@ -16,13 +21,18 @@ def extraer_tablas_pdf(archivo_pdf: str) -> list:
                 df = pd.DataFrame(tabla[1:], columns=tabla[0])
                 print('Aqui esta el df ' + str(df))
                 if is_empty_dataframe(df):
-                    tablas = tabula.read_pdf(archivo_pdf, pages='all', multiple_tables=True, encoding='latin1', stream=True, guess=False, lattice=True, area=None, relative_area=True, columns=None, split_text=True)
+                    tablas = tabula.read_pdf(archivo_pdf, pages='all', multiple_tables=True, encoding='latin1', stream=True, guess=False)
                     print("Aqui entro vacio")
                     print(tablas)
                     return tablas
                 else:
                     print("Aqui entro lleno")
-                    tablas = tabula.read_pdf(archivo_pdf, pages='all', multiple_tables=True, encoding='latin1', lattice=True, area=None, relative_area=True, columns=None, split_text=True)
+                    tablas = tabula.read_pdf(archivo_pdf, pages='all', multiple_tables=True, encoding='latin1')
+            else:
+                tablas = tabula.read_pdf(archivo_pdf, pages='all', multiple_tables=True, encoding='latin1', stream=True, guess=False)
+                print("Aqui entro vacio")
+                print(tablas)
+                return tablas
     print(tablas)
     return tablas
 
