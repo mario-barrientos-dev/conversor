@@ -123,23 +123,24 @@ a:hover {
 }
 
 footer {
-    background-image: url(images/maaji-logo.jpg);
-    background-size: cover;
-    background-color: rgba(255, 255, 255, 0.7);
-    height: 100px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Estilo del texto */
-footer p {
-    text-align: center;
-    font-size: 18px;
-    color: #0c0b0b;
-    margin-top: 35px;
-    font-weight: bold;
-}
+  position: relative; /* o fixed */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  width: 100%;
+  background-image: url(images/maaji-logo.jpg);
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  footer p {
+  text-align: center;
+  font-size: 18px;
+  color: #0c0b0b;
+  margin-top: 35px;
+  font-weight: bold;
+  }
 
 .container {
     max-width: 800px;
